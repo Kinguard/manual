@@ -1,0 +1,10 @@
+\documentclass[12pt,a4paper,draft]{book}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\author{PA Nilsson}
+\title{OPI quickstart}
+\begin{document}
+•
+\end{document}

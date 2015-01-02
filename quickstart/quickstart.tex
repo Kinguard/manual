@@ -1,0 +1,343 @@
+\documentclass[12pt,a4paper,titlepage]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{fancyhdr}
+
+\pagestyle{fancy}
+
+\renewcommand{\sectionmark}[1]{%
+\markboth{#1}{}}
+\fancyhf{} % delete current header and footer
+\fancyhead[R]{\bfseries\leftmark}
+\fancyfoot[R]{Page \thepage}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\addtolength{\headheight}{2.5pt} % space for the rule
+
+\fancypagestyle{plain}{%
+\fancyhead{} % get rid of headers on plain pages
+\fancyfoot{} % get rid of headers on plain pages
+}
+
+\usepackage[pdftex]{graphicx}
+\author{PA Nilsson}
+\title{OPI Quick Start}
+\usepackage[pdftex,colorlinks]{hyperref}
+\begin{document}
+%\maketitle
+\section{Installing OPI is Easy}
+	\begin{enumerate}
+
+		\item Plug in the network cable to in Internet enabled port, either directly connected to the Internet or behind a router.
+
+		\item Plug connect the supplied USB cable to OPI with the small end (mini-B) and the large flat connector to any always on USB port. OPI is designed with the intention of being placed close to your router, and many routers have a USB port available for printers or USB sticks. In most cases, this can be used to power OPI so that you do not need a seperate power adaptor for OPI.
+
+		\item Wait for two of the LEDs to turn solid green and the remaining one to start flashing. This means that OPI is ready for initialization.
+
+		\item During the order/delivery process for OPI, you should have received an email with an url to active your unit. The url is in the format of
+
+\begin{small}
+https://setup.op-i.me/index.php?unit\_id=41c189de-83e1-47a2-9a6d-a1d61929b01
+\end{small}
+
+Follow that link and follow the instruction on screen to complete the setup.
+
+\end{enumerate}
+\begin{quote}
+\emph{\textbf{
+Note that the master password you select is not stored anywhere and can not be emailed to you if you loose it.
+}}
+
+\emph{\textbf{
+OPI is designed to keep your information secure, and all personal information is stored encrypted on OPI. So you will need to provide the password on each restart to unlock OPI.
+}}
+\end{quote}
+
+\begin{center}
+	\includegraphics[width=7cm]{./img/OPI_iso}
+\end{center}
+
+\newpage
+\section{It Was Not THAT Easy\ldots}
+For some reason the above process did not work, let us try to figure out why.
+\begin{itemize}
+\item \textbf{The page says that I can not reach OPI.}
+
+This is most likely caused by a firewall. OPI tries to open and forwards ports using upnp, but not all firewall/routers are configured to accept that.
+
+To proceed you must either:
+\begin{enumerate}
+\item Forward at least https traffic (port 443) to OPI
+\end{enumerate}
+\emph{or}
+\begin{enumerate}
+\setcounter{enumi}{1}
+\item Access OPI from within your local network. In your local network you should be able to reach OPI on https://opi
+\end{enumerate}
+
+Note that you must use \emph{https} (encrypted connection) not just http.
+
+Hopefully you will now be prompted to enter the long activation number from your order confirmation email together and the master password.
+Then follow the instructions on screen.
+\end{itemize}
+\newpage
+\section{Init Process – Step by Step}
+\subsection{Master Password Selection}
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/master_pwd}
+\caption{Master Password selection}
+\end{figure}
+
+The first thing that needs to be done is to choose a master password for OPI. This password is used as a seed for the key that is used to encrypt all information on OPI.
+
+\begin{quote}
+\emph{\textbf{The password itself is not stored anywhere and can not be recovered or sent to you by email}.\\
+If you loose this password, there is no way to access your information.}
+\end{quote}
+
+So be very careful and if you are not sure you can remember it, write it down and store it somewhere safe. Although OPI would be a perfect place to store such sensitive information, we do not encourage you to store your master password on OPI.
+That will pose some great challenges when needed to unlock OPI....
+
+Once the master password is chosen and entered, OPI will encrypt the memory card using the supplied password.
+
+By checking the box ``Store password on USB'' the password will be stored on USB, provided that there is a USB mass storage device inserted in the USB port of OPI. It the USB device is the present on when OPI is booting, the master password will be read from that device and OPI will be unlocked automatically. While this might be a very smooth setup, it also limits the data protection in case of theft since the master password will be available to unlock OPI.
+
+The initial setup includes encryption of the memory card as well as generating keys for authentication and takes a while, so be patient during this process.
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/init}
+\caption{Initializing OPI}
+\end{figure}
+
+\newpage
+\subsection{Add First User}
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/first_user}
+\caption{Adding First User}
+\end{figure}
+Once the master password has been set, the next step is to add the first user. Enter the users real name, also known in the system as ``Display name'', username and password. The first user entered will also be added to the ``admin'' group, given access to configure the system.
+\newpage
+\subsection{Select your OPI Name}
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/opiname}
+\caption{Selecting OPI name}
+\end{figure}
+In order to find and access OPI over the Internet a domain name needs to be associated with your unit. OpenProducts provides this service, free of charge for all OPIs under the domain “op-i.me”.
+
+In this step you can select a name that prepends the domain name and makes it possible to find your unit. OPI then automatically updates this name if your IP address is changed.
+
+\newpage
+\subsection{OPI is unlocked}
+All required setups is now complete and you are ready to start using your unit.
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/unlocked}
+\caption{OPI has been unlocked and starting services}
+\end{figure}
+OPI has been unlocked and is starting all services and will redirect to the login page.
+During this step, OPI has downloaded a certificate that has been created by OPI and signed by OpenProducts servers.
+
+When redirecting to the login page, you will be warned that the certificate that was just generated is not trusted. This warning is expected and can be safely ignored.
+
+The process of adding the certificate, or OpenProducts CA (certificate authority) differs between browsers, please see the FAQ on our  \href{http://community.openproducts.com}{forum}. 
+
+\newpage
+\subsection{Sign In}
+Sign into your OPI with your newly created username and password. 
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/sign-in}
+\caption{Sign in to OPI}
+\end{figure}
+
+\newpage
+\subsection{Navigation Between Applications}
+In order to quickly be able to switch from one application to the next, a menu system is available in the top right corner of the web interface.
+
+By clicking the orange boxes, a drop down menu is activated and the different applications are presented. 
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/menu-admin}
+
+\includegraphics[width=4.93cm]{./img/menu-mail}
+\includegraphics[width=4.93cm]{./img/menu-files}
+\caption{Use the quick menu to access the different applications}
+\end{figure}
+
+\newpage
+\subsection{LEDs}
+On the front of OPI there are three LEDs.
+The following table describes the meaning of these.
+\begin{table}[h]
+\centering
+\renewcommand{\arraystretch}{1.5}
+\renewcommand{\tabcolsep}{0.2cm}
+\begin{tabular}{|c|c|c|l|}
+\hline
+\textbf{Left}&\textbf{Middle}&\textbf{Right}&\textbf{Meaning} \\
+\hline
+on & on & on & Normal Operation \\
+\hline
+off & flashing & on & The system is starting up \\
+\hline
+heartbeat & on & on & The system is awaiting user input\\
+\hline
+on & heartbeat & on & Backup is ongoing \\
+\hline
+red heartbeat & on & on & The last backup failed. \\
+\hline
+\end{tabular}
+\caption{LED interpretation}
+\end{table}
+
+\newpage
+\section{Recommended Extended Setup}
+\subsection{Enable Backup}
+To secure your data we recommend that you enable backup of your data. Not only does this protect you of data loss in case of theft or hardware malfunction, it also provides a time line of your data making it possible to retrieve data from previous versions even if the current data is changed.
+\begin{itemize}
+\item Login with an administrative account (the first user account created during setup is automatically created as an administrative account).
+\item Select ``Backup configuration''
+\item Check the box ``Enable backup''
+\item Select either “Remote” or ``Local'' target
+\end{itemize}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/backup_config}
+\caption{Backup configuration}
+\end{figure}
+
+The ``Remote'' target is OpenProducts servers, located in Sweden. By default, all users are granted 8GB space on our servers free of charge for 3 months.
+
+In order to use the ``Local'' target, a USB memory or disk needs to be inserted in the USB port on OPI. That device will then be used for backup.
+
+Note that all backups are encrypted prior to leaving OPI, meaning that no one that does not have your master password has the possibility to decrypt your information.
+
+\subsection{Mail Setup}
+\subsubsection{Outgoing Mail Server}
+In order to have mail working properly a few things need to be setup.
+If your ISP (Internet Service Provider) allows you to send mail directly, then OPI will try to deliver any mail sent from the system directly to the recipients mail server. However, even if OPI is allowed to send the mails, it is not sure that the receiving mail server will accept the message. This is due to the amount of spam today, and many mail servers requires that the sending mail server must be in various ``white lists'' or else the email will be rejected.
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/smtp_config}
+\caption{Outgoing mail configuration}
+\end{figure}
+
+It is recommended that you use your ISP outgoing mail server (known as SMTP server) and enter that information in the ``Email configuration -> Send mail'' tab. By checking the box ``Use custom SMTP settings'', a form where these details can be entered will be presented.
+
+\subsubsection{Receiving Mail}
+By default, OPI will be setup to accept incoming emails sent to all users created on the system. For these accounts, the email address used is in the form of ``username@opiname.op-i.me''. In the section ``E-mail Configuration -> Receive Mail'' it is possible to add additional addresses, including mail addresses that are on domains pointing to OPI.\\
+If other domains, the recommended setup is that the MX pointer is set to youropiname.op-i.me, since that IP address is updated by OPI.
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/receive-mail}
+\caption{Receive mail configuration}
+\end{figure}
+
+It is possible to group addresses either by local user or by domain by the drop down box.
+
+\subsubsection{Fetch External Mail}
+In order to collect all email in one location, it is possible to set up OPI to fetch mail from external accounts such as GMail or from other providers.
+In the section ``E-mail Configuration -> Fetch External Mail'', by clicking ``Add external mailbox''
+Depending on if the configurations can be figured out automatically different fields will be visible during configuration.
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/fetch-mail-1}
+
+\includegraphics[width=4.93cm]{./img/fetch-mail-2}
+\includegraphics[width=4.93cm]{./img/fetch-mail-3}
+\caption{Fetch external mail configuration}
+\end{figure}
+
+\subsection{Users and Groups}
+All user and group management is common for all applications in the system and managed from the ``Users \& Groups'' section.
+\subsubsection{Adding users}
+Users are added by clicking ``Add users'' and entering the user details. A dialog box is then presented to enter the users password.
+
+All users can be edited by clicking the pen icon on the relevant user, then selecting the appropriate action.
+\begin{figure}[h]
+\centering
+\includegraphics[width=4.93cm]{./img/users-1}
+\includegraphics[width=4.93cm]{./img/users-2}
+\caption{Adding users}
+\end{figure}
+
+\subsubsection{Adding Groups}
+Groups are added much in the same way as users. Groups can then be used for sharing files and calendars, and all users belonging to the ``admin'' group will have administrative rights to the system.
+
+Users not belonging to the ``admin'' group will not have the possibility to change any settings to the system, only to settings that are personal such as the displayed name and any e-mail settings for that specific user.
+\begin{figure}[h]
+\centering
+\includegraphics[width=4.93cm]{./img/groups-1}
+\includegraphics[width=4.93cm]{./img/groups-2}
+\caption{Adding users}
+\end{figure}
+\newpage
+\subsection{Network Configuration}
+\subsubsection{Network Settings}
+OPI by default will try to locate an existing firewall in the network and ask that firewall to forward traffic to OPI in order to access OPI from the Internet. This can be disabled on per port bases by clearing the check box for each port that should not be forwarded.
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/network-config-1}
+\caption{Forwarded ports}
+\end{figure}
+\subsubsection{OPI name}
+The OPI name can be changed if the one chosen during setup is not satisfactory. When changing the name, a new certificate will be generated and installed on OPI. If the OpenProducts CA has not been installed in your browser, it will warn you that the certificate has changed.
+There is a limit of issuing three (3) certificates per OPI, so be a bit careful when selecting your new name. A previously used opiname will not count as a new registration for the same OPI.
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/network-opiname}
+\caption{Forwarded ports}
+\end{figure}
+
+\newpage
+\section{Install OPI Sync Android Application}
+To get the most out of your new system, for Android based devices we recommend that you install our application OPI Sync available on Google Play.
+The application can be found by scanning the QR code below, or by ente
+ring this URL: \\
+\href{https://play.google.com/store/apps/details?id=openproducts.opisettings}{https://play.google.com/store/apps/details?id=openproducts.opisettings}
+\begin{figure}[h]
+\centering
+\includegraphics[width=3cm]{./img/qr-code-opi-settings}
+\caption{Scan QR code to install OPI app to your android device}
+\end{figure}
+In the application you specify your OPI name, username and password and then select which services you would like to synchronize.
+\begin{figure}[h]
+\centering
+\includegraphics[width=7cm]{./img/opi-settings}
+\caption{Android app settings}
+\end{figure}
+The different services are implemented as separate applications so that only the wanted features gets installed on your device.
+These applications are based on open source projects and more information about these applications can be found on their websites.
+
+\begin{itemize}
+\item Mail: K9\\ \href{https://github.com/k9mail/k-9/wiki}{https://github.com/k9mail/k-9/wiki}
+\item Files: Owncloud\\ \href{http://owncloud.org/}{http://owncloud.org/}
+\item Calendar and contact sync: DavDroid \\ \href{http://davdroid.bitfire.at/what-is-davdroid}{DavDroid - http://davdroid.bitfire.at/what-is-davdroid}
+\end{itemize}
+
+\newpage
+\section{Configure Web Mail Client}
+In order to have the Web Mail Client to send mail with your information as the sender, some details need to be entered in the ``Settings'' section of the Web Mail Client.
+Log in to OPI, then using the drop down menu select the ``Mail'' application.
+In the top right corner, select ``Settings'', then select ``Identities'' and click your user name to display the personal settings for your account.
+\begin{figure}[h]
+\centering
+\includegraphics[width=10cm]{./img/webmail-config}
+\caption{Web mail personal information}
+\end{figure}
+Enter the name that shall be displayed as the senders name and the email address that shall be used as the senders email.
+Optionally, also a signature that will be appended to all emails sent from the web mail client can be specified.
+
+\newpage
+\section{Further Reading}
+For additional information and reading, please visit our community site where our blog and forums can be found:
+
+\href{http://community.openproducts.com}{http://community.openproducts.com}
+\end{document}
