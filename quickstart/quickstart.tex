@@ -4,6 +4,7 @@
 \usepackage{amsfonts}
 \usepackage{amssymb}
 \usepackage{fancyhdr}
+\usepackage{placeins}
 
 \pagestyle{fancy}
 
@@ -27,6 +28,7 @@
 \usepackage[pdftex,colorlinks]{hyperref}
 \begin{document}
 %\maketitle
+\FloatBarrier
 \section{Installing OPI is Easy}
 	\begin{enumerate}
 
@@ -59,6 +61,7 @@ OPI is designed to keep your information secure, and all personal information is
 	\includegraphics[width=7cm]{./img/OPI_iso}
 \end{center}
 
+\FloatBarrier
 \newpage
 \section{It Was Not THAT Easy\ldots}
 For some reason the above process did not work, let us try to figure out why.
@@ -82,10 +85,11 @@ Note that you must use \emph{https} (encrypted connection) not just http.
 Hopefully you will now be prompted to enter the long activation number from your order confirmation email together and the master password.
 Then follow the instructions on screen.
 \end{itemize}
+\FloatBarrier
 \newpage
 \section{Init Process – Step by Step}
 \subsection{Master Password Selection}
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/master_pwd}
 \caption{Master Password selection}
@@ -106,7 +110,7 @@ Once the master password is chosen and entered, OPI will encrypt the memory card
 By checking the box ``Store password on USB'' the password will be stored on USB, provided that there is a USB mass storage device inserted in the USB port of OPI. It the USB device is the present on when OPI is booting, the master password will be read from that device and OPI will be unlocked automatically. While this might be a very smooth setup, it also limits the data protection in case of theft since the master password will be available to unlock OPI.
 
 The initial setup includes encryption of the memory card as well as generating keys for authentication and takes a while, so be patient during this process.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/init}
 \caption{Initializing OPI}
@@ -114,7 +118,7 @@ The initial setup includes encryption of the memory card as well as generating k
 
 \newpage
 \subsection{Add First User}
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/first_user}
 \caption{Adding First User}
@@ -122,7 +126,7 @@ The initial setup includes encryption of the memory card as well as generating k
 Once the master password has been set, the next step is to add the first user. Enter the users real name, also known in the system as ``Display name'', username and password. The first user entered will also be added to the ``admin'' group, given access to configure the system.
 \newpage
 \subsection{Select your OPI Name}
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/opiname}
 \caption{Selecting OPI name}
@@ -134,7 +138,7 @@ In this step you can select a name that prepends the domain name and makes it po
 \newpage
 \subsection{OPI is unlocked}
 All required setups is now complete and you are ready to start using your unit.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/unlocked}
 \caption{OPI has been unlocked and starting services}
@@ -149,7 +153,7 @@ The process of adding the certificate, or OpenProducts CA (certificate authority
 \newpage
 \subsection{Sign In}
 Sign into your OPI with your newly created username and password. 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/sign-in}
 \caption{Sign in to OPI}
@@ -161,7 +165,7 @@ In order to quickly be able to switch from one application to the next, a menu s
 
 By clicking the orange boxes, a drop down menu is activated and the different applications are presented. 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/menu-admin}
 
@@ -174,7 +178,7 @@ By clicking the orange boxes, a drop down menu is activated and the different ap
 \subsection{LEDs}
 On the front of OPI there are three LEDs.
 The following table describes the meaning of these.
-\begin{table}[h]
+\begin{table}[h!]
 \centering
 \renewcommand{\arraystretch}{1.5}
 \renewcommand{\tabcolsep}{0.2cm}
@@ -207,7 +211,7 @@ To secure your data we recommend that you enable backup of your data. Not only d
 \item Select either “Remote” or ``Local'' target
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/backup_config}
 \caption{Backup configuration}
@@ -220,21 +224,30 @@ In order to use the ``Local'' target, a USB memory or disk needs to be inserted 
 Note that all backups are encrypted prior to leaving OPI, meaning that no one that does not have your master password has the possibility to decrypt your information.
 
 \subsection{Mail Setup}
-\subsubsection{Outgoing Mail Server}
+\subsubsection{Mail Server Configuration}
 In order to have mail working properly a few things need to be setup.
-If your ISP (Internet Service Provider) allows you to send mail directly, then OPI will try to deliver any mail sent from the system directly to the recipients mail server. However, even if OPI is allowed to send the mails, it is not sure that the receiving mail server will accept the message. This is due to the amount of spam today, and many mail servers requires that the sending mail server must be in various ``white lists'' or else the email will be rejected.
-\begin{figure}[h]
+
+If your ISP (Internet Service Provider) allows you to send mail directly, then OPI will try to deliver any mail sent from the system directly to the recipients mail server. If this is the case, then select "Use OPI to send mail".\\
+However, even if OPI is allowed to send the mails, it is not sure that the receiving mail server will accept the message. This is due to the amount of spam today, and many mail servers requires that the sending mail server must be in various ``white lists'' or else the email will be rejected.
+
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/smtp_config}
-\caption{Outgoing mail configuration}
+\includegraphics[width=4.93cm]{./img/smtp_config-2}
+\includegraphics[width=4.93cm]{./img/smtp_config-3}
+\caption{Mail configuration}
 \end{figure}
+The next possibility is to use a relay server. This means that OPI will contact a server that is allowed to send mail.
 
-It is recommended that you use your ISP outgoing mail server (known as SMTP server) and enter that information in the ``Email configuration -> Send mail'' tab. By checking the box ``Use custom SMTP settings'', a form where these details can be entered will be presented.
+OpenProducts does provide such server to be used by OPI-devices. This can be selected by checking the "Use OpenProducts External mail server" option. This will in turn offer the selection to use our servers for either incoming and/or outgoing mail.
+
+The third option will allow to specify custom server details, this is what should be used if you need to fill in your ISP's outgoing mail server (known as SMTP server) configuration. By selecting this option, a form where the details about the server can be entered.
+
 
 \subsubsection{Receiving Mail}
-By default, OPI will be setup to accept incoming emails sent to all users created on the system. For these accounts, the email address used is in the form of ``username@opiname.op-i.me''. In the section ``E-mail Configuration -> Receive Mail'' it is possible to add additional addresses, including mail addresses that are on domains pointing to OPI.\\
+By default, OPI will be setup to accept incoming emails sent to all users created on the system. For these accounts, the email address used is in the form of ``username@opiname.op-i.me''. In the section ``E-mail Configuration -\textgreater Local mail accounts'' it is possible to add additional addresses, including mail addresses that are on domains pointing to OPI.\\
 If other domains, the recommended setup is that the MX pointer is set to youropiname.op-i.me, since that IP address is updated by OPI.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/receive-mail}
 \caption{Receive mail configuration}
@@ -242,11 +255,11 @@ If other domains, the recommended setup is that the MX pointer is set to youropi
 
 It is possible to group addresses either by local user or by domain by the drop down box.
 
-\subsubsection{Fetch External Mail}
+\subsubsection{Remote mail accounts}
 In order to collect all email in one location, it is possible to set up OPI to fetch mail from external accounts such as GMail or from other providers.
-In the section ``E-mail Configuration -> Fetch External Mail'', by clicking ``Add external mailbox''
+In the section ``E-mail Configuration -\textgreater Remote mail accounts'', by clicking ``Add external mailbox'' remote accounts are added from which OPI will retrieve mail.
 Depending on if the configurations can be figured out automatically different fields will be visible during configuration.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/fetch-mail-1}
 
@@ -261,7 +274,7 @@ All user and group management is common for all applications in the system and m
 Users are added by clicking ``Add users'' and entering the user details. A dialog box is then presented to enter the users password.
 
 All users can be edited by clicking the pen icon on the relevant user, then selecting the appropriate action.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=4.93cm]{./img/users-1}
 \includegraphics[width=4.93cm]{./img/users-2}
@@ -272,7 +285,7 @@ All users can be edited by clicking the pen icon on the relevant user, then sele
 Groups are added much in the same way as users. Groups can then be used for sharing files and calendars, and all users belonging to the ``admin'' group will have administrative rights to the system.
 
 Users not belonging to the ``admin'' group will not have the possibility to change any settings to the system, only to settings that are personal such as the displayed name and any e-mail settings for that specific user.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=4.93cm]{./img/groups-1}
 \includegraphics[width=4.93cm]{./img/groups-2}
@@ -281,34 +294,59 @@ Users not belonging to the ``admin'' group will not have the possibility to chan
 \newpage
 \subsection{Network Configuration}
 \subsubsection{Network Settings}
+By default OPI is configured to automatically retrieve an IP address from a DHCP server in the network it is connected to.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{./img/network-config-dhcp}[h!]
+\caption{Network configuration - DHCP setting}
+\end{figure}
+If this is not desired a static IP can be set by selecting ``Network configuration -\textgreater Network Settings''. By selecting the option "Use Static IP" a form will be presented where these settings can be entered.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{./img/network-config-static}
+\caption{Network configuration - Static IP}
+\end{figure}
+\FloatBarrier
+\subsubsection{Auto Port forward}
 OPI by default will try to locate an existing firewall in the network and ask that firewall to forward traffic to OPI in order to access OPI from the Internet. This can be disabled on per port bases by clearing the check box for each port that should not be forwarded.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/network-config-1}
 \caption{Forwarded ports}
 \end{figure}
+\FloatBarrier
 \subsubsection{OPI name}
 The OPI name can be changed if the one chosen during setup is not satisfactory. When changing the name, a new certificate will be generated and installed on OPI. If the OpenProducts CA has not been installed in your browser, it will warn you that the certificate has changed.
 There is a limit of issuing three (3) certificates per OPI, so be a bit careful when selecting your new name. A previously used opiname will not count as a new registration for the same OPI.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/network-opiname}
-\caption{Forwarded ports}
+\caption{OPI name}
 \end{figure}
+\FloatBarrier
+\subsubsection{Shell access}
+OPI is an open source unit and as such we believe that it should be open in all senses. It is therefore possible to turn on shell access to OPI by checking the "Allow shell (SSH) access to OPI" under ``Network configuration -\textgreater Shell Access''. This will start the SSH daemon and set a password (run-time generated) for the root user. The password will be sent by email to the users in the ``admin'' group on OPI.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{./img/network-shell}
+\caption{Shell access}
+\end{figure}
+\FloatBarrier
+With the username ``root'' and the generated password it is possible to log in to OPI using SSH to gain root privileges on the system. Please use this with care, as modifications to the system might prevent built-in functions, specifically with automated updates.
 
 \newpage
 \section{Install OPI Sync Android Application}
 To get the most out of your new system, for Android based devices we recommend that you install our application OPI Sync available on Google Play.
-The application can be found by scanning the QR code below, or by ente
-ring this URL: \\
+The application can be found by scanning the QR code below, or by entering this URL: \\
 \href{https://play.google.com/store/apps/details?id=openproducts.opisettings}{https://play.google.com/store/apps/details?id=openproducts.opisettings}
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=3cm]{./img/qr-code-opi-settings}
 \caption{Scan QR code to install OPI app to your android device}
 \end{figure}
+
 In the application you specify your OPI name, username and password and then select which services you would like to synchronize.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=7cm]{./img/opi-settings}
 \caption{Android app settings}
@@ -324,14 +362,24 @@ These applications are based on open source projects and more information about 
 
 \newpage
 \section{Configure Web Mail Client}
-In order to have the Web Mail Client to send mail with your information as the sender, some details need to be entered in the ``Settings'' section of the Web Mail Client.
+The system automatically picks up the information of the current user and makes that available as an identity from which it is possible to send mail. There is one identity associated with each mail account configured for that user.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{./img/webmail-send-identities}
+\caption{Web mail sender identities}
+\end{figure}
+\FloatBarrier
+
+If this is not the desired information, new identities can be added in the ``Settings'' section of the Web Mail Client.
 Log in to OPI, then using the drop down menu select the ``Mail'' application.
-In the top right corner, select ``Settings'', then select ``Identities'' and click your user name to display the personal settings for your account.
-\begin{figure}[h]
+\begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/webmail-config}
 \caption{Web mail personal information}
 \end{figure}
+In the top right corner, select ``Settings'', then select ``Identities''.
+The identity ``username@localhost'' is an identity that can be edited and used as default sender information.
+Click that name in the center column and enter relevant information to be used as sender.
 Enter the name that shall be displayed as the senders name and the email address that shall be used as the senders email.
 Optionally, also a signature that will be appended to all emails sent from the web mail client can be specified.
 
