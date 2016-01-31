@@ -384,6 +384,81 @@ Enter the name that shall be displayed as the senders name and the email address
 Optionally, also a signature that will be appended to all emails sent from the web mail client can be specified.
 
 \newpage
+\section{Using External Clients}
+\subsection{Email Settings}
+The following settings should be used in order to use email with an external client, such as Mozilla Thunderbird or Evolution
+
+\subsubsection{Incoming Mail Server}
+\begin{itemize}
+\item Server Type: IMAP
+\item Servername: 'youropiname'.op-i.me
+\item Port: 143
+\item Connection Security: STARTTLS
+\item Username: Your username on OPI, (ie 'mailuser')
+\item Authentication method: 'Normal password'
+\end{itemize}
+
+\subsubsection{Outgoing Mail Server (SMTP)}
+\begin{itemize}
+\item Server Type: SMTP
+\item Servername: 'youropiname'.op-i.me
+\item Port: 587
+\item Connection Security: STARTTLS
+\item Username: Your username on OPI, (ie 'mailuser')
+\item Authentication method: 'Normal password'
+\end{itemize}
+
+\newpage
+\subsubsection{Example Using Thunderbird}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{./img/External-clients-thunderbird1.png}
+\caption{Incoming Mail Server settings}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{./img/External-clients-thunderbird2.png}
+\caption{Outgoing Mail Server settings}
+\end{figure}
+
+\newpage
+\subsection{Calendar settings}
+Calendars on OPI can be accessed from external applications using a standardized protocol named CalDav.
+
+The URL's to the calendars can be found in the calendar section of the web application, see figure. First click the gear icon, then the little 'earth' symbol to display URL for the chosen calendar (see figure). Copy the URL as it will be needed below.
+\begin{figure}[h!]
+\centering
+\includegraphics[width=8cm]{./img/External-clients-calendar1.png}
+\caption{Calendar URL's and settings}
+\end{figure}
+\subsubsection{Example Using Thunderbird and Lightning}
+Thunderbird has a nice add-on called 'Lightning'.
+It can be found and installed by searching the for add-ons in Thunderbird.
+Once installed switch to the calendar view and right click in the calendar section then click "New Calendar..."
+\begin{figure}[h!]
+\centering
+\includegraphics[width=8cm]{./img/External-clients-lightning0.png}
+\caption{Adding new calendar}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=8cm]{./img/External-clients-lightning1.png}
+\caption{Select "On the Network"}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=8cm]{./img/External-clients-lightning2.png}
+\caption{Select "CalDAV" and enter/paste the location found in the above step}
+\end{figure}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=8cm]{./img/External-clients-lightning3.png}
+\caption{Give the calendar a name (can be anything) and select which email account should be associated by default with the calendar}
+\end{figure}
+\FloatBarrier
+You will then be prompted with a security warning due to that polices with signed certificates (which is a whole other story debated here). Accept this warning and create an exception. You will also be prompted for username and password, this is your normal OPI username/password combination.
+
+\newpage
 \section{Further Reading}
 For additional information and reading, please visit our community site where our blog and forums can be found:
 
