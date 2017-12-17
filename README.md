@@ -12,6 +12,8 @@ All contributions will be screened but with the ambition to get as much as possi
 
 The goal is to have specific product related material in seperate branches, but for now the master branch is written for OpenProducts KEEP.
 
+Currently there is the old manual for OPI in a seperte branch: https://github.com/Kinguard/manual/blob/opi/README.md
+
 Tools
 =====
 
