@@ -24,21 +24,21 @@
 
 \usepackage[pdftex]{graphicx}
 \author{PA Nilsson}
-\title{OPI Quick Start}
+\title{KEEP Quick Start}
 \usepackage[pdftex,colorlinks]{hyperref}
 \begin{document}
 %\maketitle
 \FloatBarrier
-\section{Installing OPI is Easy}
+\section{Installing KEEP is Easy}
 	\begin{enumerate}
 
 		\item Plug in the network cable to in Internet enabled port, either directly connected to the Internet or behind a router.
 
-		\item Plug connect the supplied USB cable to OPI with the small end (mini-B) and the large flat connector to any always on USB port. OPI is designed with the intention of being placed close to your router, and many routers have a USB port available for printers or USB sticks. In most cases, this can be used to power OPI so that you do not need a seperate power adaptor for OPI.
+		\item Connect the power supply to a mains outlet and plug it into KEEP. KEEP is designed with the intention of being placed close to your router, so the provided ethernet cable is fairly short in order not cause more cable fuss than necessary.
 
-		\item Wait for two of the LEDs to turn solid green and the remaining one to start flashing. This means that OPI is ready for initialization.
+		\item Wait for the LED to start flashing green with heartbeat pattern. This means that KEEP is ready for initialization.
 
-		\item During the order/delivery process for OPI, you should have received an email with an url to active your unit. The url is in the format of
+		\item During the order/delivery process for KEEP, you should have received an email with an url to active your unit. The url is in the format of
 
 \begin{small}
 https://setup.op-i.me/index.php?unit\_id=41c189de-83e1-47a2-9a6d-a1d61929b01
@@ -53,31 +53,30 @@ Note that the master password you select is not stored anywhere and can not be e
 }}
 
 \emph{\textbf{
-OPI is designed to keep your information secure, and all personal information is stored encrypted on OPI. So you will need to provide the password on each restart to unlock OPI.
+KEEP is designed to keep your information secure, and all personal information is stored encrypted on KEEP. To accomplish this you will need to provide the password on each restart to unlock KEEP.}}
+
+\emph{\textbf{ Without the password all data is encrypted on the disk and not accessible even if you remove the drive.
 }}
 \end{quote}
 
-\begin{center}
-	\includegraphics[width=7cm]{./img/OPI_iso}
-\end{center}
 
 \FloatBarrier
 \newpage
 \section{It Was Not THAT Easy\ldots}
 For some reason the above process did not work, let us try to figure out why.
 \begin{itemize}
-\item \textbf{The page says that I can not reach OPI.}
+\item \textbf{The page says that I can not reach KEEP.}
 
-This is most likely caused by a firewall. OPI tries to open and forwards ports using upnp, but not all firewall/routers are configured to accept that.
+This is most likely caused by a firewall. KEEP tries to open and forwards ports using upnp, but not all firewall/routers are configured to accept that.
 
 To proceed you must either:
 \begin{enumerate}
-\item Forward at least https traffic (port 443) to OPI
+\item Forward at least https traffic (port 443) to KEEP
 \end{enumerate}
 \emph{or}
 \begin{enumerate}
 \setcounter{enumi}{1}
-\item Access OPI from within your local network. In your local network you should be able to reach OPI on https://opi
+\item Access KEEP from within your local network. In your local network you should be able to reach KEEP on https://keep
 \end{enumerate}
 
 Note that you must use \emph{https} (encrypted connection) not just http.
@@ -95,26 +94,37 @@ Then follow the instructions on screen.
 \caption{Master Password selection}
 \end{figure}
 
-The first thing that needs to be done is to choose a master password for OPI. This password is used as a seed for the key that is used to encrypt all information on OPI.
+The first thing that needs to be done is to choose a master password for KEEP. This password is used as a seed for the key that is used to encrypt all information on KEEP.
 
 \begin{quote}
 \emph{\textbf{The password itself is not stored anywhere and can not be recovered or sent to you by email}.\\
 If you loose this password, there is no way to access your information.}
 \end{quote}
 
-So be very careful and if you are not sure you can remember it, write it down and store it somewhere safe. Although OPI would be a perfect place to store such sensitive information, we do not encourage you to store your master password on OPI.
-That will pose some great challenges when needed to unlock OPI....
+So be very careful and if you are not sure you can remember it, write it down and store it somewhere safe. Although KEEP would be a perfect place to store such sensitive information, we do not encourage you to store your master password on KEEP.
+That will pose some great challenges when needed to unlock KEEP....
 
-Once the master password is chosen and entered, OPI will encrypt the memory card using the supplied password.
+Once the master password is chosen and entered, KEEP will encrypt the memory card using the supplied password. This takes some time, so just be patient, leave the browser open and if you have a big disk, go get a cup of coffee.
 
-By checking the box ``Store password on USB'' the password will be stored on USB, provided that there is a USB mass storage device inserted in the USB port of OPI. It the USB device is the present on when OPI is booting, the master password will be read from that device and OPI will be unlocked automatically. While this might be a very smooth setup, it also limits the data protection in case of theft since the master password will be available to unlock OPI.
+By checking the box ``Store password on USB'' the password will be stored on USB, provided that there is a USB mass storage device inserted in the USB port of KEEP. It the USB device is then present on when KEEP is booting, the master password will be read from that device and KEEP will be unlocked automatically. While this might be a very smooth setup, it also limits the data protection in case of theft since the master password will be available to unlock KEEP.
 
-The initial setup includes encryption of the memory card as well as generating keys for authentication and takes a while, so be patient during this process.
+The initial setup includes encryption of the storage area as well as generating keys for authentication and takes a while, so be patient during this process.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/init}
-\caption{Initializing OPI}
+\caption{Initializing KEEP}
 \end{figure}
+
+\newpage
+\subsection{Restore Data}
+\begin{figure}[h!]
+\centering
+\includegraphics[width=10cm]{./img/restore}
+\caption{Selecting Data Source}
+\end{figure}
+If the device and access any previous data backups, either on remote on OpenProducts Servers or local on USB these will be listed in the dropdown menu. To restore data, simply choose the set that should be used to restore data from. All data will then be restored, including users and their mail, files, contacts and calendars.
+
+Pressing "Skip Restore" will do a clean install, not restoring any data.
 
 \newpage
 \subsection{Add First User}
@@ -124,27 +134,28 @@ The initial setup includes encryption of the memory card as well as generating k
 \caption{Adding First User}
 \end{figure}
 Once the master password has been set, the next step is to add the first user. Enter the users real name, also known in the system as ``Display name'', username and password. The first user entered will also be added to the ``admin'' group, given access to configure the system.
+
 \newpage
-\subsection{Select your OPI Name}
+\subsection{Select your Device Name}
 \begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/opiname}
-\caption{Selecting OPI name}
+\caption{Selecting KEEP name}
 \end{figure}
-In order to find and access OPI over the Internet a domain name needs to be associated with your unit. OpenProducts provides this service, free of charge for all OPIs under the domain “op-i.me”.
+In order to find and access KEEP over the Internet a domain name needs to be associated with your unit. OpenProducts provides this service, free of charge for all OPIs and KEEPs under the domains “op-i.me” or "mykeep.net", selectable in the drop down list.
 
-In this step you can select a name that prepends the domain name and makes it possible to find your unit. OPI then automatically updates this name if your IP address is changed.
+In this step you can select a name that prepends the domain name and makes it possible to find your unit. KEEP then automatically updates this name if your IP address is changed.
 
 \newpage
-\subsection{OPI is unlocked}
+\subsection{KEEP is unlocked}
 All required setups is now complete and you are ready to start using your unit.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/unlocked}
-\caption{OPI has been unlocked and starting services}
+\caption{KEEP has been unlocked and starting services}
 \end{figure}
-OPI has been unlocked and is starting all services and will redirect to the login page.
-During this step, OPI has downloaded a certificate that has been created by OPI and signed by OpenProducts servers.
+KEEP has been unlocked and is starting all services and will redirect to the login page.
+During this step, KEEP has downloaded a certificate that has been created by KEEP and signed by OpenProducts servers.
 
 When redirecting to the login page, you will be warned that the certificate that was just generated is not trusted. This warning is expected and can be safely ignored.
 
@@ -152,11 +163,11 @@ The process of adding the certificate, or OpenProducts CA (certificate authority
 
 \newpage
 \subsection{Sign In}
-Sign into your OPI with your newly created username and password. 
+Sign into your KEEP with your newly created username and password. 
 \begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/sign-in}
-\caption{Sign in to OPI}
+\caption{Sign in to KEEP}
 \end{figure}
 
 \newpage
@@ -176,7 +187,7 @@ By clicking the orange boxes, a drop down menu is activated and the different ap
 
 \newpage
 \subsection{LEDs}
-On the front of OPI there are three LEDs.
+On the front of KEEP there is one LED.
 The following table describes the meaning of these.
 \begin{table}[h!]
 \centering
@@ -184,17 +195,17 @@ The following table describes the meaning of these.
 \renewcommand{\tabcolsep}{0.2cm}
 \begin{tabular}{|c|c|c|l|}
 \hline
-\textbf{Left}&\textbf{Middle}&\textbf{Right}&\textbf{Meaning} \\
+\textbf{LED}&\textbf{Meaning} \\
 \hline
-on & on & on & Normal Operation \\
+Solid Green & Normal Operation \\
 \hline
-off & flashing & on & The system is starting up \\
+Solid Blue & Initial System Startup \\
 \hline
-heartbeat & on & on & The system is awaiting user input\\
+Blue Heartbeat & Linux is booting\\
 \hline
-on & heartbeat & on & Backup is ongoing \\
+Green Heartbeat & System is avaiting input or Backup is ongoing \\
 \hline
-red heartbeat & on & on & The last backup failed. \\
+red & Something is wrong, check the admin UI for details. \\
 \hline
 \end{tabular}
 \caption{LED interpretation}
@@ -208,7 +219,7 @@ To secure your data we recommend that you enable backup of your data. Not only d
 \item Login with an administrative account (the first user account created during setup is automatically created as an administrative account).
 \item Select ``Backup configuration''
 \item Check the box ``Enable backup''
-\item Select either “Remote” or ``Local'' target
+\item Select either ``OpenProducts Servers'',  ``Amazon S3'' or ``Local'' target
 \end{itemize}
 
 \begin{figure}[h!]
@@ -217,18 +228,21 @@ To secure your data we recommend that you enable backup of your data. Not only d
 \caption{Backup configuration}
 \end{figure}
 
-The ``Remote'' target is OpenProducts servers, located in Sweden. By default, all users are granted 8GB space on our servers free of charge for 3 months.
+The ``OpenProducts Servers'' target is OpenProducts servers, located in Sweden. By default, all users are granted 8GB space on our servers free of charge for 3 months.
 
-In order to use the ``Local'' target, a USB memory or disk needs to be inserted in the USB port on OPI. That device will then be used for backup.
+To ``Amazon S3'' target you need to supply an existing bucket, the ``Amazon Access Key'' and the ``Amazon Secret Access Key'' to access the S3 account. \href{http://www.ezs3.com/public/231.cfm}{Read here how to find them}.
 
-Note that all backups are encrypted prior to leaving OPI, meaning that no one that does not have your master password has the possibility to decrypt your information.
+In order to use the ``Local'' target, a USB memory or disk needs to be inserted in the USB port on KEEP. That device will then be used for backup.
+
+Note that all backups are encrypted prior to leaving KEEP, meaning that no one that does not have your master password has the possibility to decrypt your information.
+Also note that currenlty the Amazon backend is not supported during a total re-install. The data will be accessible after the re-install, but all users and system settings have to be manually entered.
 
 \subsection{Mail Setup}
 \subsubsection{Mail Server Configuration}
 In order to have mail working properly a few things need to be setup.
 
-If your ISP (Internet Service Provider) allows you to send mail directly, then OPI will try to deliver any mail sent from the system directly to the recipients mail server. If this is the case, then select "Use OPI to send mail".\\
-However, even if OPI is allowed to send the mails, it is not sure that the receiving mail server will accept the message. This is due to the amount of spam today, and many mail servers requires that the sending mail server must be in various ``white lists'' or else the email will be rejected.
+If your ISP (Internet Service Provider) allows you to send mail directly, then KEEP will try to deliver any mail sent from the system directly to the recipients mail server. If this is the case, then select "Use KEEP to send mail".\\
+However, even if KEEP is allowed to send the mails, it is not sure that the receiving mail server will accept the message. This is due to the amount of spam today, and many mail servers requires that the sending mail server must be in various ``white lists'' or else the email will be rejected.
 
 \begin{figure}[h!]
 \centering
@@ -237,16 +251,16 @@ However, even if OPI is allowed to send the mails, it is not sure that the recei
 \includegraphics[width=4.93cm]{./img/smtp_config-3}
 \caption{Mail configuration}
 \end{figure}
-The next possibility is to use a relay server. This means that OPI will contact a server that is allowed to send mail.
+The next possibility is to use a relay server. This means that KEEP will contact a server that is allowed to send mail.
 
-OpenProducts does provide such server to be used by OPI-devices. This can be selected by checking the "Use OpenProducts External mail server" option. This will in turn offer the selection to use our servers for either incoming and/or outgoing mail.
+OpenProducts does provide such server to be used by KEEP-devices. This can be selected by checking the "Use OpenProducts External mail server" option. This will in turn offer the selection to use our servers for either incoming and/or outgoing mail.
 
 The third option will allow to specify custom server details, this is what should be used if you need to fill in your ISP's outgoing mail server (known as SMTP server) configuration. By selecting this option, a form where the details about the server can be entered.
 
 
 \subsubsection{Receiving Mail}
-By default, OPI will be setup to accept incoming emails sent to all users created on the system. For these accounts, the email address used is in the form of ``username@opiname.op-i.me''. In the section ``E-mail Configuration -\textgreater Local mail accounts'' it is possible to add additional addresses, including mail addresses that are on domains pointing to OPI.\\
-If other domains, the recommended setup is that the MX pointer is set to youropiname.op-i.me, since that IP address is updated by OPI.
+By default, KEEP will be setup to accept incoming emails sent to all users created on the system. For these accounts, the email address used is in the form of ``username@devicename.mykeep.net''. In the section ``E-mail Configuration -\textgreater Local mail accounts'' it is possible to add additional addresses, including mail addresses that are on domains pointing to KEEP.\\
+If other domains are added, the recommended setup is that the MX pointer is set to devicename.mykeep.net, since that IP address is updated by KEEP.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/receive-mail}
@@ -256,8 +270,8 @@ If other domains, the recommended setup is that the MX pointer is set to youropi
 It is possible to group addresses either by local user or by domain by the drop down box.
 
 \subsubsection{Remote mail accounts}
-In order to collect all email in one location, it is possible to set up OPI to fetch mail from external accounts such as GMail or from other providers.
-In the section ``E-mail Configuration -\textgreater Remote mail accounts'', by clicking ``Add external mailbox'' remote accounts are added from which OPI will retrieve mail.
+In order to collect all email in one location, it is possible to set up KEEP to fetch mail from external accounts such as GMail or from other providers. Currently GMail accounts need to have the "\href{https://support.google.com/accounts/answer/6010255?hl=en}{Less Secure Apps} enabled to allow access for KEEP to retreive mail.
+In the section ``E-mail Configuration -\textgreater Remote mail accounts'', by clicking ``Add external mailbox'' remote accounts are added from which KEEP will retrieve mail.
 Depending on if the configurations can be figured out automatically different fields will be visible during configuration.
 \begin{figure}[h!]
 \centering
@@ -284,7 +298,7 @@ All users can be edited by clicking the pen icon on the relevant user, then sele
 \subsubsection{Adding Groups}
 Groups are added much in the same way as users. Groups can then be used for sharing files and calendars, and all users belonging to the ``admin'' group will have administrative rights to the system.
 
-Users not belonging to the ``admin'' group will not have the possibility to change any settings to the system, only to settings that are personal such as the displayed name and any e-mail settings for that specific user.
+Users not belonging to the ``admin'' group will not have the possibility to change any system settings, only to change settings that are personal such as the displayed name and any e-mail settings for that specific user.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=4.93cm]{./img/groups-1}
@@ -294,7 +308,7 @@ Users not belonging to the ``admin'' group will not have the possibility to chan
 \newpage
 \subsection{Network Configuration}
 \subsubsection{Network Settings}
-By default OPI is configured to automatically retrieve an IP address from a DHCP server in the network it is connected to.
+By default KEEP is configured to automatically retrieve an IP address from a DHCP server in the network it is connected to.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/network-config-dhcp}[h!]
@@ -308,56 +322,43 @@ If this is not desired a static IP can be set by selecting ``Network configurati
 \end{figure}
 \FloatBarrier
 \subsubsection{Auto Port forward}
-OPI by default will try to locate an existing firewall in the network and ask that firewall to forward traffic to OPI in order to access OPI from the Internet. This can be disabled on per port bases by clearing the check box for each port that should not be forwarded.
+KEEP by default will try to locate an existing firewall in the network and ask that firewall to forward traffic to KEEP in order to access OPI from the Internet. This can be disabled on per port bases by clearing the check box for each port that should not be forwarded.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/network-config-1}
 \caption{Forwarded ports}
 \end{figure}
 \FloatBarrier
-\subsubsection{OPI name}
-The OPI name can be changed if the one chosen during setup is not satisfactory. When changing the name, a new certificate will be generated and installed on OPI. If the OpenProducts CA has not been installed in your browser, it will warn you that the certificate has changed.
-There is a limit of issuing three (3) certificates per OPI, so be a bit careful when selecting your new name. A previously used opiname will not count as a new registration for the same OPI.
+\subsubsection{Device name}
+Here the device name for the system can be changed if the one chosen during setup is not satisfactory.
+If a new name is selected and the system is reachable from the internet, by default a valid certificate using \href{https://letsencrypt.org/}{Let's Encrypt} will be generated. If not a certificate signed by OpenProducts will be installed.
+
+It is also possible to use a custom certificate by checking ``Use Custom Certificate'' and provide the key and the certificate in the text areas.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/network-opiname}
-\caption{OPI name}
+\caption{Device name}
 \end{figure}
 \FloatBarrier
 \subsubsection{Shell access}
-OPI is an open source unit and as such we believe that it should be open in all senses. It is therefore possible to turn on shell access to OPI by checking the "Allow shell (SSH) access to OPI" under ``Network configuration -\textgreater Shell Access''. This will start the SSH daemon and set a password (run-time generated) for the root user. The password will be sent by email to the users in the ``admin'' group on OPI.
+KEEP is an open source unit and as such we believe that it should be open in all senses. It is therefore possible to turn on shell access to KEEP by checking the "Allow shell (SSH) access to your devcie" under ``Network configuration -\textgreater Shell Access''. This will start the SSH daemon and set a password (run-time generated) for the root user. The password will be sent by email to the users in the ``admin'' group on KEEP.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/network-shell}
 \caption{Shell access}
 \end{figure}
 \FloatBarrier
-With the username ``root'' and the generated password it is possible to log in to OPI using SSH to gain root privileges on the system. Please use this with care, as modifications to the system might prevent built-in functions, specifically with automated updates.
+With the username ``root'' and the generated password it is possible to log in to KEEP using SSH to gain root privileges on the system. Please use this with care, as modifications to the system might prevent built-in functions, specifically with automated updates.
 
 \newpage
-\section{Install OPI Sync Android Application}
-To get the most out of your new system, for Android based devices we recommend that you install our application OPI Sync available on Google Play.
-The application can be found by scanning the QR code below, or by entering this URL: \\
-\href{https://play.google.com/store/apps/details?id=openproducts.opisettings}{https://play.google.com/store/apps/details?id=openproducts.opisettings}
-\begin{figure}[h!]
-\centering
-\includegraphics[width=3cm]{./img/qr-code-opi-settings}
-\caption{Scan QR code to install OPI app to your android device}
-\end{figure}
-
-In the application you specify your OPI name, username and password and then select which services you would like to synchronize.
-\begin{figure}[h!]
-\centering
-\includegraphics[width=7cm]{./img/opi-settings}
-\caption{Android app settings}
-\end{figure}
-The different services are implemented as separate applications so that only the wanted features gets installed on your device.
-These applications are based on open source projects and more information about these applications can be found on their websites.
-
+\section{Install Android Sync Applications}
+To get the most out of your new system, for Android based devices we recommend that you install some application on your device.
+We recommend:
 \begin{itemize}
-\item Mail: K9\\ \href{https://github.com/k9mail/k-9/wiki}{https://github.com/k9mail/k-9/wiki}
-\item Files: Owncloud\\ \href{http://owncloud.org/}{http://owncloud.org/}
-\item Calendar and contact sync: DavDroid \\ \href{http://davdroid.bitfire.at/what-is-davdroid}{DavDroid - http://davdroid.bitfire.at/what-is-davdroid}
+\item Mail: K9\\ \href{https://play.google.com/store/apps/details?id=com.fsck.k9}{K9 Mail}
+\item Files: NextCloud\\ \href{https://play.google.com/store/apps/details?id=com.nextcloud.client}{NextCloud}
+Note that the base URL to be used is https://'devicename'.mykeep.net/nc (not /owncloud)
+\item Calendar and contact sync: Open Sync \\ \href{https://play.google.com/store/apps/details?id=com.deependhulla.opensync}{Open Sync}
 \end{itemize}
 
 \newpage
@@ -371,17 +372,18 @@ The system automatically picks up the information of the current user and makes 
 \FloatBarrier
 
 If this is not the desired information, new identities can be added in the ``Settings'' section of the Web Mail Client.
-Log in to OPI, then using the drop down menu select the ``Mail'' application.
+Log in to KEEP, then using the drop down menu select the ``Mail'' application.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=10cm]{./img/webmail-config}
 \caption{Web mail personal information}
 \end{figure}
 In the top right corner, select ``Settings'', then select ``Identities''.
-The identity ``username@localhost'' is an identity that can be edited and used as default sender information.
 Click that name in the center column and enter relevant information to be used as sender.
 Enter the name that shall be displayed as the senders name and the email address that shall be used as the senders email.
 Optionally, also a signature that will be appended to all emails sent from the web mail client can be specified.
+
+Please note that the identities that are created by adding users and mailaccounts can not be edited here. Identities created hera are only added as information to emails sent. If an identity created here is associated with a non-exiting email account, any mail sent to that address will bounce.
 
 \newpage
 \section{Using External Clients}
@@ -391,20 +393,20 @@ The following settings should be used in order to use email with an external cli
 \subsubsection{Incoming Mail Server}
 \begin{itemize}
 \item Server Type: IMAP
-\item Servername: 'youropiname'.op-i.me
+\item Servername: 'devicename'.mykeep.net
 \item Port: 143
 \item Connection Security: STARTTLS
-\item Username: Your username on OPI, (ie 'mailuser')
+\item Username: Your username on KEEP, (ie 'mailuser')
 \item Authentication method: 'Normal password'
 \end{itemize}
 
 \subsubsection{Outgoing Mail Server (SMTP)}
 \begin{itemize}
 \item Server Type: SMTP
-\item Servername: 'youropiname'.op-i.me
+\item Servername: 'devicename'.mykeep.net
 \item Port: 587
 \item Connection Security: STARTTLS
-\item Username: Your username on OPI, (ie 'mailuser')
+\item Username: Your username on KEEP, (ie 'mailuser')
 \item Authentication method: 'Normal password'
 \end{itemize}
 
@@ -423,7 +425,7 @@ The following settings should be used in order to use email with an external cli
 
 \newpage
 \subsection{Calendar settings}
-Calendars on OPI can be accessed from external applications using a standardized protocol named CalDav.
+Calendars on KEEP can be accessed from external applications using a standardized protocol named CalDav.
 
 The URL's to the calendars can be found in the calendar section of the web application, see figure. First click the gear icon, then the little 'earth' symbol to display URL for the chosen calendar (see figure). Copy the URL as it will be needed below.
 \begin{figure}[h!]
@@ -432,9 +434,7 @@ The URL's to the calendars can be found in the calendar section of the web appli
 \caption{Calendar URL's and settings}
 \end{figure}
 \subsubsection{Example Using Thunderbird and Lightning}
-Thunderbird has a nice add-on called 'Lightning'.
-It can be found and installed by searching the for add-ons in Thunderbird.
-Once installed switch to the calendar view and right click in the calendar section then click "New Calendar..."
+Go to the calendar view and right click in the calendar section then click "New Calendar..." Then select that the calendar is on the network and of type "CalDav", enter the URL found above in the "Location" field.
 \begin{figure}[h!]
 \centering
 \includegraphics[width=8cm]{./img/External-clients-lightning0.png}
@@ -456,7 +456,7 @@ Once installed switch to the calendar view and right click in the calendar secti
 \caption{Give the calendar a name (can be anything) and select which email account should be associated by default with the calendar}
 \end{figure}
 \FloatBarrier
-You will then be prompted with a security warning due to that polices with signed certificates (which is a whole other story debated here). Accept this warning and create an exception. You will also be prompted for username and password, this is your normal OPI username/password combination.
+You might then be prompted with a security warning (depending on wether the Let's Encrypt certificate was able to be installed or not) due to that polices with self signed certificates. Accept this warning and create an exception. You will also be prompted for username and password, this is your normal KEEP username/password combination.
 
 \newpage
 \section{Further Reading}
