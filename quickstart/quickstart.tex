@@ -5,6 +5,7 @@
 \usepackage{amssymb}
 \usepackage{fancyhdr}
 \usepackage{placeins}
+\usepackage{datetime}
 
 \pagestyle{fancy}
 
@@ -258,6 +259,8 @@ The next possibility is to use a relay server. This means that KEEP will contact
 
 OpenProducts does provide such server to be used by KEEP-devices. This can be selected by checking the "Use OpenProducts External mail server" option. This will in turn offer the selection to use our servers for either incoming and/or outgoing mail.
 
+Using the OpenProducts Relay server for incoming mail also requires that port 2525 is open (forwarded) to your unit and available from the internet. The intention of this configuration is to allow mail to be received even if the ISP blocks port 25, which is fairly common.
+
 The third option will allow to specify custom server details, this is what should be used if you need to fill in your ISP's outgoing mail server (known as SMTP server) configuration. By selecting this option, a form where the details about the server can be entered.
 
 
@@ -473,5 +476,5 @@ The following people have been contributing to this document:
 \item PA Nilsson, OpenProducts \href{http://www.openproducts.com}{http://www.openproducts.com}
 \item Tor Krill, OpenProducts \href{http://www.openproducts.com}{http://www.openproducts.com}
 \end{description}
-
+Last update, \today
 \end{document}
